@@ -1,0 +1,27 @@
+# permissions for end users to view awsvmschedulerstartsdhs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: awsvmschedulerstartsdh-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: vm-scheduler-operator-sdh
+    app.kubernetes.io/part-of: vm-scheduler-operator-sdh
+    app.kubernetes.io/managed-by: kustomize
+  name: awsvmschedulerstartsdh-viewer-role
+rules:
+- apiGroups:
+  - aws.xyzcompany.com
+  resources:
+  - awsvmschedulerstartsdhs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - aws.xyzcompany.com
+  resources:
+  - awsvmschedulerstartsdhs/status
+  verbs:
+  - get

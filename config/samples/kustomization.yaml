@@ -1,0 +1,9 @@
+## Append samples you want in your CSV to this file as resources ##
+resources:
+- aws_v1_awsvmschedulerstartsdh.yaml
+- azure_v1_azurevmschedulerstartsdh.yaml
+- gcp_v1_gcpvmschedulerstartsdh.yaml
+- aws_v1_awsvmschedulerstopsdh.yaml
+- azure_v1_azurevmschedulerstopsdh.yaml
+- gcp_v1_gcpvmschedulerstopsdh.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples

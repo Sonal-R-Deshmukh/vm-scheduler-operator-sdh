@@ -1,0 +1,31 @@
+# permissions for end users to edit azurevmschedulerstartsdhs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: azurevmschedulerstartsdh-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: vm-scheduler-operator-sdh
+    app.kubernetes.io/part-of: vm-scheduler-operator-sdh
+    app.kubernetes.io/managed-by: kustomize
+  name: azurevmschedulerstartsdh-editor-role
+rules:
+- apiGroups:
+  - azure.xyzcompany.com
+  resources:
+  - azurevmschedulerstartsdhs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - azure.xyzcompany.com
+  resources:
+  - azurevmschedulerstartsdhs/status
+  verbs:
+  - get

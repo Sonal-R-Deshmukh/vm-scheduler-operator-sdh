@@ -1,0 +1,27 @@
+# permissions for end users to view awsvmschedulerstopsdhs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: awsvmschedulerstopsdh-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: vm-scheduler-operator-sdh
+    app.kubernetes.io/part-of: vm-scheduler-operator-sdh
+    app.kubernetes.io/managed-by: kustomize
+  name: awsvmschedulerstopsdh-viewer-role
+rules:
+- apiGroups:
+  - aws.xyzcompany.com
+  resources:
+  - awsvmschedulerstopsdhs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - aws.xyzcompany.com
+  resources:
+  - awsvmschedulerstopsdhs/status
+  verbs:
+  - get

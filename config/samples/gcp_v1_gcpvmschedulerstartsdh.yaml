@@ -1,0 +1,12 @@
+apiVersion: gcp.xyzcompany.com/v1
+kind: GCPVMSchedulerStartsdh
+metadata:
+  labels:
+    app.kubernetes.io/name: gcpvmschedulerstartsdh
+    app.kubernetes.io/instance: gcpvmschedulerstartsdh-sample
+    app.kubernetes.io/part-of: vm-scheduler-operator-sdh
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: vm-scheduler-operator-sdh
+  name: gcpvmschedulerstartsdh-sample
+spec:
+  # TODO(user): Add fields here

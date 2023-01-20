@@ -1,0 +1,12 @@
+apiVersion: azure.xyzcompany.com/v1
+kind: AzureVMSchedulerStopsdh
+metadata:
+  labels:
+    app.kubernetes.io/name: azurevmschedulerstopsdh
+    app.kubernetes.io/instance: azurevmschedulerstopsdh-sample
+    app.kubernetes.io/part-of: vm-scheduler-operator-sdh
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: vm-scheduler-operator-sdh
+  name: azurevmschedulerstopsdh-sample
+spec:
+  # TODO(user): Add fields here

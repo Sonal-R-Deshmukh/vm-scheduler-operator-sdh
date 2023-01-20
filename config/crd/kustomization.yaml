@@ -1,0 +1,36 @@
+# This kustomization.yaml is not intended to be run by itself,
+# since it depends on service name and namespace that are out of this kustomize package.
+# It should be run by config/default
+resources:
+- bases/aws.xyzcompany.com_awsvmschedulerstartsdhs.yaml
+- bases/azure.xyzcompany.com_azurevmschedulerstartsdhs.yaml
+- bases/gcp.xyzcompany.com_gcpvmschedulerstartsdhs.yaml
+- bases/aws.xyzcompany.com_awsvmschedulerstopsdhs.yaml
+- bases/azure.xyzcompany.com_azurevmschedulerstopsdhs.yaml
+- bases/gcp.xyzcompany.com_gcpvmschedulerstopsdhs.yaml
+#+kubebuilder:scaffold:crdkustomizeresource
+
+patchesStrategicMerge:
+# [WEBHOOK] To enable webhook, uncomment all the sections with [WEBHOOK] prefix.
+# patches here are for enabling the conversion webhook for each CRD
+#- patches/webhook_in_awsvmschedulerstartsdhs.yaml
+#- patches/webhook_in_azurevmschedulerstartsdhs.yaml
+#- patches/webhook_in_gcpvmschedulerstartsdhs.yaml
+#- patches/webhook_in_awsvmschedulerstopsdhs.yaml
+#- patches/webhook_in_azurevmschedulerstopsdhs.yaml
+#- patches/webhook_in_gcpvmschedulerstopsdhs.yaml
+#+kubebuilder:scaffold:crdkustomizewebhookpatch
+
+# [CERTMANAGER] To enable cert-manager, uncomment all the sections with [CERTMANAGER] prefix.
+# patches here are for enabling the CA injection for each CRD
+#- patches/cainjection_in_awsvmschedulerstartsdhs.yaml
+#- patches/cainjection_in_azurevmschedulerstartsdhs.yaml
+#- patches/cainjection_in_gcpvmschedulerstartsdhs.yaml
+#- patches/cainjection_in_awsvmschedulerstopsdhs.yaml
+#- patches/cainjection_in_azurevmschedulerstopsdhs.yaml
+#- patches/cainjection_in_gcpvmschedulerstopsdhs.yaml
+#+kubebuilder:scaffold:crdkustomizecainjectionpatch
+
+# the following config is for teaching kustomize how to do kustomization for CRDs.
+configurations:
+- kustomizeconfig.yaml
