@@ -20,6 +20,7 @@ import (
 	"context"
 	"reflect"
 	"strconv"
+
 	awsv1 "github.com/Sonal-R-Deshmukh/vm-scheduler-operator-sdh/apis/aws/v1"
 	"github.com/go-logr/logr"
 	batchv1 "k8s.io/api/batch/v1"
@@ -57,12 +58,11 @@ type AWSVMSchedulerStopsdhReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.13.0/pkg/reconcile
 func (r *AWSVMSchedulerStopsdhReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	,
 	//_ = log.FromContext(ctx)
 	log := ctrllog.FromContext(ctx)
 	//log := r.Log.WithValues("AWSVMSchedulerStopsdh", req.NamespacedName)
 	log.Info("Reconciling AWSVMSchedulerStopsdh")
- 
+
 	// Fetch the AWSVMSchedulerStopsdh CR
 	//awsVMScheduler, err := services.FetchAWSVMSchedulerStopsdhCR(req.Name, req.Namespace)
 
@@ -126,7 +126,7 @@ func (r *AWSVMSchedulerStopsdhReconciler) Reconcile(ctx context.Context, req ctr
 	log.Info(newInstanceIds)
 
 	newStopSchedule := awsVMScheduler.Spec.StopSchedule //////////
-	log.Info(newStopSchedule) /////////////
+	log.Info(newStopSchedule)                           /////////////
 
 	newImage := awsVMScheduler.Spec.Image
 	log.Info(newImage)
@@ -141,7 +141,7 @@ func (r *AWSVMSchedulerStopsdhReconciler) Reconcile(ctx context.Context, req ctr
 	}
 
 	if newStopSchedule != currentStopSchedule { /////
-		found.Spec.Schedule = newStopSchedule      /////
+		found.Spec.Schedule = newStopSchedule /////
 		applyChange = true
 	}
 
@@ -303,10 +303,8 @@ func (r *AWSVMSchedulerStopsdhReconciler) cronJobForAWSVMSchedulerStopsdh(awsVMS
 
 func AWSVMSchedulerStopsdhLabels(v *awsv1.AWSVMSchedulerStopsdh, tier string) map[string]string {
 	return map[string]string{
-		"app":               "AWSVMSchedulerStopsdh",
+		"app":                      "AWSVMSchedulerStopsdh",
 		"AWSVMSchedulerStopsdh_cr": v.Name,
-		"tier":              tier,
+		"tier":                     tier,
 	}
 }
-
-
