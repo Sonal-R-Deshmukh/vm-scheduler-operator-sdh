@@ -1,0 +1,71 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.10.0
+  creationTimestamp: null
+  name: awsvmschedulerstopsdhs.aws.xyzcompany.com
+spec:
+  group: aws.xyzcompany.com
+  names:
+    kind: AWSVMSchedulerStopsdh
+    listKind: AWSVMSchedulerStopsdhList
+    plural: awsvmschedulerstopsdhs
+    singular: awsvmschedulerstopsdh
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: AWSVMSchedulerStopsdh is the Schema for the awsvmschedulerstopsdhs
+          API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: AWSVMSchedulerStopsdhSpec defines the desired state of AWSVMSchedulerStopsdh
+            properties:
+              image:
+                description: This spec allows you to supply image name which will
+                  start/stop VM
+                type: string
+              instanceIds:
+                description: Comma separated list of AWS instance ids which will be
+                  scheduled by CR
+                type: string
+              stopSchedule:
+                description: Schedule period for the CronJob. This spec allows you
+                  to setup the stop schedule for VM
+                type: string
+            required:
+            - image
+            - instanceIds
+            - stopSchedule
+            type: object
+          status:
+            description: AWSVMSchedulerStopsdhStatus defines the observed state of
+              AWSVMSchedulerStopsdh
+            properties:
+              vmStopStatus:
+                description: Schedule period for the CronJob. This will show the status
+                  of stop action for the VM(s)
+                type: string
+            required:
+            - vmStopStatus
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

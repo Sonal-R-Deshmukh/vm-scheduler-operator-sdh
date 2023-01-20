@@ -206,7 +206,7 @@ func (r *AWSVMSchedulerStopsdhReconciler) SetupWithManager(mgr ctrl.Manager) err
 }
 
 // CronJob Spec
-func (r *AWSVMSchedulerStopsdhReconciler) cronJobForAWSVMSchedulerStopsdh(awsVMScheduler *awsv1.AWSVMScheduler) *batchv1.CronJob {
+func (r *AWSVMSchedulerStopsdhReconciler) cronJobForAWSVMSchedulerStopsdh(awsVMScheduler *awsv1.AWSVMSchedulerStopsdh) *batchv1.CronJob {
 
 	cron := &batchv1.CronJob{
 		ObjectMeta: v1.ObjectMeta{
